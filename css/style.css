@@ -1,0 +1,710 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", system-ui, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+:root {
+    --main-color: #ce1212;
+    --text-color:#7f7f90;
+    --bg-color:#eee;
+    --hover-color:red;
+    --gap: 30px;
+    --margin-top: 3.125rem;
+    --margin-bottom: 3.125rem;
+    --font-family-head: 'Amatic SC', sans-serif;
+
+    --main-color-dk:#c17e1f;
+    --main-color-dk-hover:orange;
+    --bg-color-dk-main:#252525;
+    --bg-color-dk-secondary:#202020;
+    --navbar-color:#171717;
+} 
+/**================= General Css Shared ===================**/
+.dark-mode input{
+    opacity: 0;
+ }
+.dark-mode label :nth-child(2){
+    display:none
+ }
+.header-section p{
+    font-weight: 400;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+.header-section h2{
+    font-family: var(--font-family-head);
+    font-weight: 400;
+    font-size: 3.1rem;
+}
+.header-section h2 span{
+    font-family: var(--font-family-head);
+    color: var(--main-color);
+}
+
+/* ====================== Home Section ================= */
+
+/* font-family: 'Amatic SC', sans-serif; */
+.home-section {
+    background-color: #eee;
+    /* height: 100vh; */
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.home-section .navbar {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    box-shadow: 0px 0px 14px 0px #0000001b;
+
+}
+
+.home-section .navbar .navbar-items {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5625rem 0.3125rem;
+}
+
+.home-section .navbar .navbar-items h1.header {
+    cursor: pointer;
+}
+
+.home-section .navbar .navbar-items span {
+    color: var(--main-color);
+    font-weight: 600;
+}
+
+.home-section .navbar .navbar-items i {
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.home-section .navbar .list-header ul {
+    display: flex;
+    list-style: none;
+    column-gap: 30px;
+}
+
+.home-section .navbar .list-header ul li {
+    font-weight: 600;
+    color: var(--text-color);
+    padding-block: 8px;
+    position: relative;
+    transition: all 0.8s;
+    cursor: pointer;
+}
+
+.home-section .navbar .list-header ul li::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    width: 0px;
+    height: 1.5px;
+    background-color: var(--main-color);
+    transition: all 0.3s ease-in;
+}
+
+.home-section .navbar .list-header ul li:hover {
+    color: #000;
+}
+
+.home-section .navbar .list-header ul li:hover:before {
+    width: 100%;
+}
+
+.home-section .navbar .list-header ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/*========================= Target section Navaber==========================**/
+body:not(body:has(:target)) .home-section .navbar .list-header ul li a[href="#home"],
+body:has(.home-content:target) li a[href="#home"],
+body:has(.contact-us:target) li a[href="#contact"],
+body:has(.cooking:target) li a[href="#gallery"],
+body:has(.chefs:target) li a[href="#chefs"] {
+  color: #000;
+}
+
+body:not(body:has(:target)) li a[href="#home"]::before,
+body:has(.home-content:target) li a[href="#home"]::before,
+body:has(.contact-us:target) li a[href="#contact"]::before,
+body:has(.cooking:target) li a[href="#gallery"]::before,
+body:has(.chefs:target) li a[href="#chefs"]::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--main-color);
+}
+/**======================== End Target Section Navbar ======================**/
+
+
+.home-content .description-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.home-content .container .desc-section {
+    width: 35%;
+    margin-top: 4rem;
+}
+
+.home-content .desc-section h2.header {
+    font-size: 4.0625rem;
+    font-family: var(--font-family-head);
+    color: #37373f;
+}
+
+.home-content .desc-section p {
+    margin-block: 20px;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.home-content .container .img-home {
+    margin-top: 4rem;
+    width: 40%;
+}
+
+.home-content .container .img-home img {
+    display: block;
+    width: 100%;
+    filter: drop-shadow(4px 4px 9px #000a);
+
+}
+
+.home-content .container .img-home img:hover {
+    animation: shake 0.8s;
+    animation-iteration-count: infinite;
+}
+/**=================== Shake Animation =================*/
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+.home-content .desc-section .buttons {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.home-content .desc-section .buttons button {
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 0.6rem 1.5625rem;
+    border-radius: 0px 100px 100px;
+    border: none;
+    font-size: 1.1rem;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.home-content .desc-section .buttons button:hover {
+    background-color: #e61414;
+}
+
+.video-icon {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.video-icon:hover {
+    color: var(--main-color);
+}
+
+.video-icon .icon {
+    background-image: linear-gradient(to right, var(--main-color) 0 50%, transparent 50% 100%);
+    width: 3.4375rem;
+    height: 3.4375rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    margin-right: 0.3125rem;
+    position: relative;
+}
+
+.video-icon .icon::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: inherit;
+}
+
+.video-icon .icon i {
+    z-index: 3;
+}
+
+/* ==========================our chefs section ====================== */
+.chefs .container {
+    text-align: center;
+    padding-top: var(--margin-top);
+    padding-bottom: var(--margin-bottom);
+}
+
+.collections {
+    display: flex;
+    gap: var(--gap);
+    margin-block: 40px;
+}
+
+.chefs .collections div.img-box {
+    /* width: calc(calc(100% - var(--gap) * 2) / 3); */
+    background-color: #fff;
+    text-align: center;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 3px 3px 15px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+.chefs .collections div.img-box:hover{
+    transform: scale(1.1);
+}
+
+.chefs .collections div.img-box .pic {
+    position: relative;
+}
+
+.chefs .collections div.img-box .pic::before {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background-image: url("https://routeegy.github.io/Mealify/assets/img/team-shape.svg");
+    width: 100%;
+    height: 3.75rem;
+}
+.chefs .collections div.img-box img {
+    width: 100%;
+    display: block;
+}
+.chefs .collections div.img-box div.img-content {
+    margin: 10px 20px;
+}
+.chefs .collections div.img-box div.img-content .name{
+    font-weight: 700;
+    font-size: 18px;
+
+}
+.chefs .collections div.img-box div.img-content .job
+{
+    padding-block: 5px;
+    color: var(--text-color);
+}
+.chefs .collections div.img-box div.img-content .desc{
+    padding-block: 10px;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+
+.chefs .collections div.img-box .social{
+    background-color: #ffffff4d;
+    border-radius: 9px;
+    padding: 15px 4px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: translatex(60px);
+    transition: all 0.3s ease-in-out;
+    transition-delay: 0.3s;
+}
+.chefs .collections div.img-box .social ul li:hover a{
+    color: #37373f;
+}
+.chefs .collections div.img-box:hover .social{
+    transform: translatex(0px);
+}
+
+.chefs .collections div.img-box .social ul{
+    list-style: none;
+}
+.chefs .collections div.img-box .social ul li a{
+    color: var(--text-color);
+    font-size: 20px;
+    padding: 10px;
+
+}
+.chefs .collections div.img-box .social ul li 
+{
+    padding-block: 5px;
+}
+
+/*============================ Gallery Section =========================== */
+div.cooking{
+    background-color: var(--bg-color);
+    text-align: center;
+    
+}
+div.cooking .container{
+    padding-top: var(--margin-top);
+}
+div.cooking .container .picutres-collections{
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: var(--margin-top);
+}
+div.cooking .container .picture{
+    width: calc(calc(100% - var(--gap) * 2) / 3);
+    border: 4px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+div.cooking .container .picture .overlay{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #00000096;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+div.cooking .container .picture div.overlay :nth-child(1) {
+    font-size: 20px;
+    font-weight: 700;
+
+}
+div.cooking .container .picture div.overlay :nth-child(2) {
+    font-size: 16px;
+
+}
+div.cooking .container .picture:hover .overlay{
+   top: 0;
+}
+div.cooking .container .picture img{
+    width: 100%;
+    display: block;
+    transition: all 0.5s ease-in-out;
+}
+div.cooking .container .picture:hover img{
+    transform: scale(1.1);
+}
+
+/* ========================= Contact Us Section ======================= */
+.contact-us{
+    text-align: center;
+}
+.contact-us .container{
+    padding-block: 5rem;
+}
+.contact-us .contact-us-content .contact-details{
+    margin-block: 0.9375rem;
+}
+.contact-us .contact-us-content .contact-details ul{
+    --gap: 0.9375rem;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    text-align: left;
+
+}
+.contact-us .contact-us-content .contact-details ul li{
+    width: calc(calc(100% - var(--gap)) /2);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 20px;
+}
+.contact-us .contact-us-content .contact-details ul li .icon
+{
+    color:#fff;
+    min-width: 3.125rem;
+    min-height: 3.125rem;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.contact-us .contact-us-content .contact-details ul li div.cs-content p:first-of-type{
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--text-color);
+}
+.contact-us .contact-us-content .contact-details ul li .cs-content span{
+    font-weight: 700;
+}
+.contact-us .contact-us-content .contact-details ul li .cs-content a{
+    color: #000;
+    text-decoration: none;
+}
+.contact-us .contact-us-content .form{
+    --gap: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    margin-bottom: var(--gap);
+    box-shadow: 0 0 1.875rem #00000014;
+    padding: 1.25rem;
+
+}
+.contact-us .contact-us-content .form input{
+    padding: 0.9375rem 0.9375rem;
+    border-radius: 3px;
+    border: 2px solid var(--bg-color);
+}
+.contact-us .contact-us-content .form input:focus{
+    border:2px solid var(--main-color);
+    outline: none;
+}
+.contact-us .contact-us-content .form div.user{
+    display: flex;
+    gap: var(--gap);
+}
+.contact-us .contact-us-content .form div.user input{
+    width: calc(calc(100% - var(--gap)) / 2);
+}
+
+.contact-us .contact-us-content .form .subject{
+    width: 100%;
+}
+.contact-us .contact-us-content .form textarea{
+    width: 100%;
+    resize: vertical;
+    padding: 0.9375rem 0.9375rem;
+    border-radius: 3px;
+    border: 2px solid var(--bg-color);
+}
+.contact-us .contact-us-content .form textarea:focus{
+    border:2px solid var(--main-color);
+    outline: none;
+}
+.contact-us .contact-us-content .form button{
+    --padding: 0.75rem 2.5rem;
+    margin-top: 1.5625rem;
+    width: fit-content;
+    font-family: inherit;
+    padding: var(--padding);
+    background-color: var(--main-color);
+    border-radius: 100px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.contact-us .contact-us-content .form button:hover{
+    background-color: var(--hover-color);
+}
+/* ============================ Footer Section ======================== */
+.footer{
+    background-image: url(../images/bg-footer.jpg);
+    color: #fff;
+}
+.footer .footer-content{
+    display: flex;
+    --gap-footer:1.3rem;
+    padding-top: 2.4rem;
+    padding-bottom: var(--margin-bottom);
+    gap: var(--gap-footer);
+}
+.footer .footer-content .section-media{
+    width: calc(calc(100% - var(--gap-footer) * 2) / 4);
+}
+.footer .footer-content .section-media hr{
+    width: 100%;
+}
+
+.footer .footer-content .media-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer .footer-content .section-media .header-media{
+    display: flex;
+    align-items: center;
+}
+.footer .footer-content .section-media img{
+    width: 40px;
+    margin: 10px;
+    
+}
+.footer .footer-content .section-media h3{
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+.footer .footer-content .section-media h3 span{
+    color: var(--main-color);
+}
+.footer .footer-content .section-media p{
+    padding-block: 5px;
+    
+}
+.media-content h4{
+    padding: 0.625rem;
+    font-size: 18px;
+    font-weight: 700;
+}
+.socail-links{
+    padding: 0.625rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.socail-links i{
+    font-size: 1.5rem;
+    color: #fff;
+}
+/**
+---------------------------- Subscribe Section ----------------------------
+*/
+.subscribe{
+    width: calc(calc(100% - var(--gap-footer) * 2) / 2);
+}
+.subscribe p{
+    padding-block: 10px;
+}
+.subscribe .submit{
+    margin-block: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.subscribe .submit input{
+    flex-grow: 1;
+    padding: 0.625rem;
+}
+.subscribe .submit button{
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.subscribe .submit button:hover{
+    background-color: var(--hover-color);
+}
+.subscribe .submit button i{
+    padding-right: 10px;
+}
+
+.subscribe h4{
+    padding-block: 10px;
+}
+.subscribe .links{
+    display: flex;
+}
+.subscribe .links ul{
+    list-style: none;
+    display: flex;
+    --gap: 5px;
+    flex-direction: column;
+    width: calc(100% - var(--gap) /2);
+}
+.subscribe .links ul li
+{
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.subscribe .links ul li:hover{
+    background-color: #222;
+    margin-left: 10px;
+}
+.subscribe .links ul li i{
+   padding-right: 5px;
+}
+/* ------------------- Get In Touch ------------------ */
+.follow-us .items ul{
+    list-style: none;
+    padding-block: 15px;
+}
+.follow-us .items ul li{
+    display: flex;
+    align-items: center;
+}
+
+.follow-us .items ul li i{
+    color: var(--main-color);
+    font-size: 24px;
+    padding:10px;
+    cursor: pointer;
+}
+
+

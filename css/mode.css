@@ -1,0 +1,87 @@
+
+/**** ======================= dark mode css ========================= ****/
+body:has(input:checked) .home-section .dark-mode label :nth-child(2){
+    display: inline-block;
+ }
+ body:has(input:checked) .home-section .dark-mode label :nth-child(1){
+    display: none;
+ }
+body:has(input:checked) .home-section,
+body:has(input:checked) .home-content,
+body:has(input:checked) .home-content .description-content h2,
+body:has(input:checked) .cooking,
+body:has(input:checked) .contact-us .contact-us-content .form
+{
+    color: #fff;
+    background-color: var(--bg-color-dk-main);
+}
+body:has(input:checked) .chefs,
+body:has(input:checked) .contact-us
+{
+    background-color: var(--bg-color-dk-secondary);
+    color: #fff;
+}
+body:has(input:checked) .home-section .buttons button,
+body:has(input:checked) .contact-us .contact-us-content .form button,
+body:has(input:checked)  .subscribe .submit button,
+body:has(input:checked) .contact-us .contact-us-content .contact-details ul li .icon,
+body:has(input:checked) .home-section .navbar .list-header ul li::before
+{
+    background-color: var(--main-color-dk);
+    color: #000;
+}
+body:has(input:checked) .home-section .buttons button:hover,
+body:has(input:checked) .contact-us .contact-us-content .form button:hover,
+body:has(input:checked)  .subscribe .submit button:hover,
+body:not(body:has(:target)):has(input:checked) .home-section .navbar .list-header ul li a[href="#home"]::before,
+body:has(.home-content:target):has(input:checked) .home-section .navbar .list-header ul li a[href="#home"]::before,
+body:has(.chefs:target):has(input:checked) .home-section .list-header  a[href="#chefs"]::before,
+body:has(.cooking:target):has(input:checked) .home-section .list-header  a[href="#gallery"]::before,
+body:has(.contact-us:target):has(input:checked) .home-section .list-header  a[href="#contact"]::before
+{
+    background-color: var(--main-color-dk-hover);
+}
+body:has(input:checked) .video-icon span,
+body:has(input:checked) .video-icon .icon,
+body:not(body:has(:target)):has(input:checked) .home-section .navbar .list-header ul li a[href="#home"],
+body:has(.home-content:target):has(input:checked) .home-section .navbar .list-header ul li a[href="#home"],
+body:has(.chefs:target):has(input:checked) .home-section .list-header  a[href="#chefs"],
+body:has(.cooking:target):has(input:checked) .home-section .list-header  a[href="#gallery"],
+body:has(.contact-us:target):has(input:checked) .home-section .list-header  a[href="#contact"]
+{
+    color: #fff;
+}
+
+body:has(input:checked) .video-icon:hover .icon,
+body:has(input:checked) .video-icon:hover span,
+body:has(input:checked) .header-section h2 span,
+body:has(input:checked) .follow-us .items ul li i,
+body:has(input:checked) .home-section .navbar span
+{
+    color:var(--main-color-dk)
+}
+body:has(input:checked) .video-icon .icon::after {
+    background-color: #000;
+}
+
+body:has(input:checked) .video-icon .icon
+{
+    background-image: linear-gradient(to right, var(--main-color-dk) 0 50%, transparent 50% 100%);
+}
+
+body:has(input:checked) .home-section .navbar,
+body:has(input:checked) .chefs .collections div.img-box,
+body:has(input:checked) .contact-us .contact-us-content .contact-details ul > li
+{
+    background-color: var(--navbar-color);
+}
+body:has(input:checked) div.home-section div.container .navbar .navbar-items .list-header ul li a{
+    color:var(--text-color)
+}
+body:has(input:checked) .contact-us .contact-us-content .contact-details ul > li a
+{
+    color: #fff;
+}
+body:has(input:checked)  .chefs .collections div.img-box .pic::before{
+    background-image: url("../images/team-shape-dark.svg");
+}
